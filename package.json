@@ -6,8 +6,14 @@
   "scripts": {
     "start": "node microservices/api-gateway.js",
     "start:services": "node microservices/services/serverServices.js",
+    "start:masters": "node microservices/masters/serverMasters.js",
+    "start:appointments": "node microservices/appointments/serverAppointments.js",
+    "start:users": "node microservices/users/serverUsers.js",
     "dev": "nodemon microservices/api-gateway.js",
     "dev:services": "nodemon microservices/services/serverServices.js",
+    "dev:masters": "nodemon microservices/masters/serverMasters.js",
+    "dev:appointments": "nodemon microservices/appointments/serverAppointments.js",
+    "dev:users": "nodemon microservices/users/serverUsers.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Salon Admin - Masters</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/masters.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Beauty Salon Admin Panel</h1>
+            <nav class="nav-bar">
+                <a href="masters.html" class="nav-link">Masters</a>
+                <a href="services.html" class="nav-link">Services</a>
+            </nav>
+        </header>
+        
+        <div class="content">
+            <section class="master-form">
+                <h2 id="formTitle">Add New Master</h2>
+                <form id="masterForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Services:</label>
+                        <div id="servicesCheckboxes" class="services-checkboxes">
+                            <p>Loading services...</p>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn">Add Master</button>
+                    <button type="button" id="cancelBtn" style="display:none;">Cancel</button>
+                </form>
+            </section>
+            
+            <section class="master-list">
+                <h2>Masters List</h2>
+                <div id="mastersContainer"></div>
+            </section>
+        </div>
+    </div>
+
+    
+    <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalMasterName">Master Schedule</h2>
+            <div class="date-controls">
+                <input type="date" id="scheduleDatePicker">
+                <button id="prevDayBtn">&lt;</button>
+                <button id="nextDayBtn">&gt;</button>
+            </div>
+            <div id="scheduleGrid" class="schedule-grid">
+            </div>
+            <div class="modal-actions">
+                <button id="addAppointmentBtn">Add Appointment</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-appointment-modal">&times;</span>
+            <h2 id="appointmentModalTitle">New Appointment</h2>
+            <form id="appointmentForm">
+                <input type="hidden" id="appointmentId">
+                <div class="form-group">
+                    <label for="clientSelect">Client:</label>
+                    <select id="clientSelect" required>
+                        <option value="">Select client</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceSelect">Service:</label>
+                    <select id="serviceSelect" required>
+                        <option value="">Select service</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDateTime">Date & Time:</label>
+                    <input type="datetime-local" id="appointmentDateTime"  name="dateTime" required>
+                </div>
+                <div class="form-group">
+                    <label>End Time:</label>
+                    <div id="appointmentEndTime" class="end-time-display">--:--</div>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentNote">Notes:</label>
+                    <textarea id="appointmentNote" rows="3"></textarea>
+                </div>
+                <div class="form-group" id="statusField" style="display: none;">
+                    <label for="appointmentStatus">Status:</label>
+                    <select id="appointmentStatus">
+                        <option value="not fulfilled">not fulfilled</option>
+                        <option value="fulfilled">fulfilled</option>
+                        <option value="cancelled">cancelled</option>
+                    </select>
+                </div>
+                <button type="submit" id="saveAppointmentBtn">Save</button>
+                <button type="button" id="cancelAppointmentBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/masters.js"></script>
+</body>
+</html>
+
